@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 
+require("dotenv").config();
+
 const authRoutes = require("./routes/auth");
 const articleRoutes = require("./routes/article");
 
@@ -58,7 +60,7 @@ app.use((error, req, res, next) => {
 mongoose.set("useFindAndModify", false);
 mongoose
   .connect(
-    "mongodb+srv://root:hafidz0209@cluster0.e4yrg.mongodb.net/blog?retryWrites=true",
+    `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.e4yrg.mongodb.net/blog?retryWrites=true`,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then((result) => {
