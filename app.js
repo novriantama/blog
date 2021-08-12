@@ -60,7 +60,7 @@ app.use((error, req, res, next) => {
 mongoose.set("useFindAndModify", false);
 mongoose
   .connect(
-    `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASS}@cluster0.e4yrg.mongodb.net/blog?retryWrites=true`,
+    `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.e4yrg.mongodb.net/blog?retryWrites=true`,
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then((result) => {
